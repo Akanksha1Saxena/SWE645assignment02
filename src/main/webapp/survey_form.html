@@ -1,0 +1,215 @@
+
+<!-- 
+    File: survey_form.html
+    Author: Akanksha Saxena
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Survey Form</title>
+    <style>
+        
+        body {
+            background-color:#a3b6ba;
+            font-family: Verdana;
+            text-align: center;
+        }
+
+        
+        form {
+            background-color: #fff;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px 20px;
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        
+        .survey-form {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .survey-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        
+        .survey-form input,
+        .survey-form select,
+        .survey-form textarea {
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            padding: 10px;
+            display: block;
+            width: 95%;
+        }
+
+        
+        .survey-form input[type="radio"],
+        .survey-form input[type="checkbox"] {
+            display: inline-block;
+            width: auto;
+        }
+
+        button {
+            background-color: #c8dce9;
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 21px;
+            display: block;
+            width: 50%;
+            margin: 50px auto 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Title -->
+    <h2>Survey Form</h2>
+    <form id="form">
+
+        <!-- Personal Information Section -->
+        <div class="survey-form">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" placeholder="Enter your First name" required>
+        </div>
+
+        <div class="survey-form">
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" placeholder="Enter your Last name" required>
+        </div>
+
+        <div class="survey-form">
+            <label for="address">Street Address:</label>
+            <input type="text" id="address" placeholder="Enter your address" required>
+        </div>
+
+        <div class="survey-form">
+            <label for="city">City:</label>
+            <input type="text" id="city" placeholder="Enter your City" required>
+        </div>
+
+        <div class="survey-form">
+            <label for="state">State:</label>
+            <input type="text" id="state" placeholder="Enter your State" required>
+        </div>
+
+        <div class="survey-form">
+            <label for="zip">ZIP Code:</label>
+            <input type="text" id="zip" placeholder="Enter your ZIP Code" required>
+        </div>
+
+        <div class="survey-form">
+            <label for="phone">Telephone:</label>
+            <input type="tel" id="phone" placeholder="Enter your Telephone number" required>
+        </div>
+
+        <div class="survey-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your Email ID" required>
+        </div>
+
+        <div class="survey-form">
+            <label for="survey_date">Date of Survey:</label>
+            <input type="date" id="survey_date" required>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="survey-form">
+             <label>What did you like most about the campus?
+        <small>(Check all that apply)</small>
+        </label>
+    
+        <label for="students">
+            <input type="checkbox" id="students" name="aspect" value="students"> Students
+        </label><br>
+
+        <label for="location">
+            <input type="checkbox" id="location" name="aspect" value="location"> Location
+        </label><br>
+
+        <label for="campus">
+            <input type="checkbox" id="campus" name="aspect" value="campus"> Campus
+        </label><br>
+
+        <label for="atmosphere">
+            <input type="checkbox" id="atmosphere" name="aspect" value="atmosphere"> Atmosphere
+        </label><br>
+
+        <label for="dorm">
+            <input type="checkbox" id="dorm" name="aspect" value="dorm"> Dorm rooms
+        </label><br>
+
+        <label for="sports">
+            <input type="checkbox" id="sports" name="aspect" value="sports"> Sports
+        </label><br>
+        </div>
+         
+         <!-- Interest Section -->
+        <div class="survey-form">
+        <label>
+        How did you become interested in this university?
+        </label>
+
+        <label for="friends">
+            <input type="radio" id="friends" name="interest" value="friends"> Friends
+        </label><br>
+        <label for="television">
+            <input type="radio" id="television" name="interest" value="television">Television
+        </label><br>
+        <label for="Internet">
+            <input type="radio" id="Internet" name="interest" value="Internet"> Internet
+        </label><br>
+        <label for="other">
+            <input type="radio" id="other" name="interest" value="other">Other
+        </label><br>
+        </div>
+        
+        <!-- Recommendation Section -->
+        <div class="survey-form">
+            <label for="likelyhood" id="label-like">
+                How likely are you to recommend this school to others?
+            </label>
+            <select name="like" id="like">
+                <option value="Very Likely">Very Likely</option>
+                <option value="Likely">Likely</option>
+                <option value="Unlikely">Unlikely</option>
+                
+            </select>
+        </div>
+        
+        <!-- Raffle Entry Section -->
+        <div class="survey-form">
+        <label for="raffle">
+           Raffle
+        </label>
+        <input type="text" id="raffle" name="raffle" required 
+           pattern="^(\s*\d{1,2}\s*,){9}\s*\d{1,2}\s*$" 
+           placeholder="Enter exactly 10 numbers between 1-100, separated by commas.">
+        </div>
+
+        <!-- Additional Comments Section -->
+       <div class="survey-form">
+            <label for="comment">
+                Additional comments 
+            </label>
+            <textarea name="comment" id="comment" 
+                      placeholder="Enter your comment here">
+            </textarea>
+        </div>
+        
+         <!-- Form Buttons -->
+        <button type="submit" value="submit">Submit</button>
+
+         <button type="cancel" value="cancel">Cancel</button>
+
+    </form>
+</body>
+</html>
