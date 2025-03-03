@@ -6,18 +6,22 @@ pipeline {
     stages {
         stage('Test Credentials') {
             steps {
-                // Test that the Docker username is correctly set (do not print the password)
+                // Test that the Docker username is correctly set
                 sh 'echo "Docker Username: $DOCKER_CREDENTIALS_USR"'
             }
         }
-        
+
         stage('Build WAR') {
             steps {
-                sh 'rm -rf target/Studentsurvey.war'  // Clean old builds
-                sh 'jar -cvf target/Studentsurvey.war -C src/main/webapp .'  // Build WAR
+                // Check if the src/main/webapp directory exists and list its contents
+                sh 'ls -l src/main/webapp'
+                
+                // Clean old builds and try building the WAR file
+                sh 'rm -rf target/Studentsurvey.war'
+                sh 'jar -cvf target/Studentsurvey.war -C src/main/webapp .'
             }
         }
-        
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t akanshasaxena1/studentsurvey645:0.1 .'  // Build image
