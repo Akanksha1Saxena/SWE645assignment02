@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_CREDENTIALS = credentials('Success01#321')  // Use stored Docker Hub credentials
+        DOCKER_CREDENTIALS = credentials('Success01321')  // Use stored Docker Hub credentials
     }
     stages {
         stage('Test Credentials') {
