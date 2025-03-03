@@ -4,6 +4,13 @@ pipeline {
         DOCKER_CREDENTIALS = credentials('Success01#321')  // Use stored Docker Hub credentials
     }
     stages {
+        stage('Test Credentials') {
+            steps {
+                // Test that the Docker username is correctly set (do not print the password)
+                sh 'echo "Docker Username: $DOCKER_CREDENTIALS_USR"'
+            }
+        }
+        
         stage('Build WAR') {
             steps {
                 sh 'rm -rf target/Studentsurvey.war'  // Clean old builds
