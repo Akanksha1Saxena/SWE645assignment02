@@ -12,12 +12,13 @@ pipeline {
         }
 
         stage('Build WAR') {
-            steps {
+             steps {
                 // Check if the src/main/webapp directory exists and list its contents
                 sh 'ls -l src/main/webapp'
                 
                 // Clean old builds and try building the WAR file
                 sh 'rm -rf target/Studentsurvey.war'
+                sh 'mkdir -p target'  // Ensure the target directory exists
                 sh 'jar -cvf target/Studentsurvey.war -C src/main/webapp .'
             }
         }
