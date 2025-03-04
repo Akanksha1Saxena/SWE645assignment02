@@ -25,7 +25,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t akanshasaxena1/studentsurvey645:0.1 .'  // Build image
+                sh 'docker build  --no-cache -t akanshasaxena1/studentsurvey645:0.1 .'  // Build image
             }
         }
 
@@ -43,8 +43,10 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                sh 'kubectl set image deployment/swe645assignment2-deploy container-0=akanshasaxena1/studentsurvey645:0.1 -n default'
-                sh 'kubectl rollout restart deployment/swe645assignment2-deploy -n default'
+                 sh 'kubectl set image deployment/swe645assignment2-deploy container-0=akanshasaxena1/studentsurvey645:${BUILD_NUMBER} -n default'
+                 sh 'kubectl rollout restart deployment/swe645assignment2-deploy -n default'
+                 sh 'kubectl rollout status deployment/swe645assignment2-deploy -n default'
+
             }
         }
     }
