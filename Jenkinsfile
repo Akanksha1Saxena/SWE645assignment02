@@ -19,7 +19,7 @@ pipeline {
                 // Clean old builds and try building the WAR file
                 sh 'rm -rf target/Studentsurvey.war'
                 sh 'mkdir -p target'  // Ensure the target directory exists
-                sh 'jar -cvf target/Studentsurvey.war -C src/main/webapp .'
+                sh 'jar -cvf target/Studentsurvey.war -C "src/main/webapp" .'
             }
         }
 
