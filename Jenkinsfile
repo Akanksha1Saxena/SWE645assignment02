@@ -12,8 +12,6 @@ pipeline {
 
         stage('Build WAR') {
              steps {
-               // Ensure the target directory exists
-            sh 'mkdir -p target/WEB-INF'
 
             // Remove any old WAR file
             sh 'rm -f target/Studentsurvey.war'
