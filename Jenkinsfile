@@ -14,6 +14,7 @@ pipeline {
              steps {
                 // Clean old builds and try building the WAR file
                 sh 'rm -rf target/Studentsurvey.war'
+                sh 'cp -r *.html target/'
                 sh 'jar -cvf target/Studentsurvey.war -C "src/main/webapp" .'
             }
         }
