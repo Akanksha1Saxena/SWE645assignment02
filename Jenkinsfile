@@ -18,9 +18,6 @@ pipeline {
             // Remove any old WAR file
             sh 'rm -f target/Studentsurvey.war'
 
-            // Copy HTML files to the target folder
-            sh 'cp -r *.html target/'
-
             // Package as WAR
             sh 'jar -cvf target/Studentsurvey.war -C target .'
             }
