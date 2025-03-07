@@ -19,7 +19,7 @@ pipeline {
             sh 'rm -f target/Studentsurvey.war'
 
             // Package as WAR
-            sh 'jar -cvf target/Studentsurvey.war -C target .'
+            sh 'jar -cvf target/Studentsurvey.war -C "src/main/webapp" .'
             }
         }
 
