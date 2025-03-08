@@ -12,9 +12,8 @@ pipeline {
 
         stage('Build WAR') {
              steps {
-            sh 'rm -rf target && mkdir -p target'
-            sh 'cp -r src/main/webapp/*.html target/'
-            sh 'jar -cvf Studentsurvey.war -C target .'
+            sh 'rm -rf target/Studentsurvey.war'
+            sh 'jar -cvf target/Studentsurvey.war -C "src/main/webapp" .'
             }
         }
 
