@@ -12,8 +12,12 @@ pipeline {
 
         stage('Build WAR') {
              steps {
-            sh 'rm -rf target/Studentsurvey.war'
-            sh 'jar -cvf target/Studentsurvey.war -C "src/main/webapp" .'
+            script {
+                    sh 'rm -rf target && mkdir -p target'
+                    sh 'cp src/main/webapp/*.html target/'
+                    sh 'jar -cvf target/Studentsurvey.war -C target .'
+                    sh 'cp target/Studentsurvey.war .'  // explicitly move WAR file to Docker context
+                }
             }
         }
 
