@@ -13,12 +13,8 @@ pipeline {
         stage('Build WAR') {
              steps {
             script {
-                    sh 'rm -rf target && mkdir -p target/WEB-INF'
-                    sh 'cp src/main/webapp/*.html target/'
-                    sh 'jar -cvf target/Studentsurvey.war -C target .'
-
-                    // Explicitly copy WAR into Docker build context root folder
-                   sh 'cp target/Studentsurvey.war .'
+                    sh 'rm -f target/Studentsurvey.war'
+                    sh 'jar -cvf target/Studentsurvey.war -C "src/main/webapp" .'
                 }
             }
         }
