@@ -12,12 +12,12 @@ pipeline {
 
         stage('Build WAR') {
              steps {
-
-            // Remove any old WAR file
-            sh 'rm -f target/Studentsurvey.war'
-
-            // Package as WAR
-            sh 'jar -cvf target/Studentsurvey.war -C "src/main/webapp" .'
+ script {
+                    sh 'mkdir -p target/WEB-INF'
+                    sh 'rm -f target/Studentsurvey.war'
+                    sh 'cp *.html target/'
+                    sh 'jar -cvf target/Studentsurvey.war -C target .'
+                }
             }
         }
 
